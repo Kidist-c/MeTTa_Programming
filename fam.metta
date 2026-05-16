@@ -26,13 +26,13 @@
 
     ; Practice queries
 !(match &self (Parent $x John) $x)
-
+    ;search for mother of Pam
 !(match &self (Parent $x Pam)
 (match &self (Female $x) $x))
-
+    ; search for siblings of Pam
 !(match &self (Parent $y Pam)
 (match &self (Parent $y $sib) $sib))
-
+    ; search for Uncles of Kim
 !(match &self (Parent $y Kim)
 (match &self (Parent $z $y)
 (match &self (Parent $z $sib)
