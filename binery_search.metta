@@ -30,3 +30,20 @@
 ; check to see the result of inserting values into the BST
 !(insert 5 Empty)
 !(insert 3 (insert 5 Empty))
+
+    ; define a function to search for the value in the BST
+    ; if the return is Empty  then the value is not found
+(= (search $x Empty) false)
+
+    ; if the tree is not empty, check if the value is equal to the current node value
+(= (search $x (Node $y $left $right))
+(if (== $x $y) true
+(if (< $x $y)
+    ; serach in the left subtree
+(search $x $left)
+    ; serach in the right subtree
+(search $x $right))))
+
+
+    ; check to see the result of seaching for the value in the BST
+!(search 5 (insert 7 Empty))
