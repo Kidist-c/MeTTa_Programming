@@ -8,7 +8,7 @@
 (: Empty BST)
 (: Node (-> Number BST BST BST))
 
-    ; define a function to insert a value into the BST
+    ; 1.define a function to insert a value into the BST
     ; if the tree is empty, create a new node with the value
 (= (insert $x Empty) (Node $x Empty Empty))
 
@@ -31,7 +31,7 @@
 !(insert 5 Empty)
 !(insert 3 (insert 5 Empty))
 
-    ; define a function to search for the value in the BST
+    ; 2.define a function to search for the value in the BST
     ; if the return is Empty  then the value is not found
 (= (search $x Empty) false)
 
@@ -47,3 +47,14 @@
 
     ; check to see the result of seaching for the value in the BST
 !(search 5 (insert 7 Empty))
+    ;3.define a function to find the minimum value in the BST
+    ;check the Bst is empty if it is empty return null
+(= (find-min Empty) null)
+    ; check there is left value if there is no left value then he current node value is the minimum value
+(= (find-min (Node $y Empty $right)) $y)
+    ; if there is left value then find the minimum value in the left subtree recursively
+(= (find-min (Node $y $left $right)) (find-min $left))
+  
+    ; check to see the result of finding the minimum value in the BST
+!(find-min (insert 5 (insert 3 (insert 7 Empty))))
+
