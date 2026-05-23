@@ -9,3 +9,15 @@
     ; check if the length is working well
 !(mylength Nil)
 !(mylength (:: 4 (:: 5 (:: 6 Nil))))
+
+    ; check if the  an item is in the list
+
+(= (is_member $x Nil) false)
+
+(= (is_member $x (:: $x $xs)) true)
+
+(= (is_member $x (:: $y $ys)) (is_member $x $ys))
+    ; check if the is_member is working well
+!(is_member 4 Nil)
+!(is_member 4 (:: 4 (:: 5 (:: 6 Nil))))
+!(is_member 7 (:: 4 (:: 5 (:: 6 Nil))))
