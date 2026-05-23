@@ -21,3 +21,11 @@
 !(is_member 4 Nil)
 !(is_member 4 (:: 4 (:: 5 (:: 6 Nil))))
 !(is_member 7 (:: 4 (:: 5 (:: 6 Nil))))
+
+    ; define the append function
+
+(= (list_append Nil $ys) $ys)
+
+(= (list_append (:: $x $xs) $ys) (:: $x (list_append $xs $ys)))
+    ; check if the append is working well
+!(list_append Nil 3)
